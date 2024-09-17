@@ -102,7 +102,7 @@ abstract class BaseService {
             $ctctException = new CtctException("Something went wrong", $exception->getCode());
         }
         $ctctException->setUrl($exception->getRequest()->getUri());
-        $ctctException->setErrors(json_decode($exception->getResponse()->getBody()->getContents()));
+        $ctctException->setErrors(json_decode($exception->getResponse()->getBody()->getContents(), true));
         return $ctctException;
     }
 }
